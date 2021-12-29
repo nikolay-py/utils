@@ -33,6 +33,7 @@ def save_in_db(conn: TypeEngine, table:str, csv_file: str) -> None:
         df.to_sql(table, con=conn, if_exists='append', index=False)
 
         os.rename(move_from, move_to)
+        print(f'Файл сохранен в базу {csv_file}')
 
     except Exception as error:
         print(f'{error}\nОшибка в файле {csv_file}')
